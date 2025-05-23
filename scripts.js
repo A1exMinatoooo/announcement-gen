@@ -193,10 +193,10 @@ function formatDate(dateStr) {
 const locationData = {
     "寰映影城（中洲湾C Future City店）": { subway: "9号线下沙站B出口", checkInDesk: "影城3楼" },
     "金逸影城（宝安大仟里激光IMAX店）": { subway: "1号线坪洲站A出口", checkInDesk: "影城4楼" },
-    "寰映影城（深圳湾睿印RAIL IN店）": { subway: "9/11号线红树湾南E出口", checkInDesk: "影城4楼" },
+    "寰映影城（深圳湾睿印RAIL IN店）": { subway: "9/11号线红树湾南站E出口、2/8号线红树湾站B出口", checkInDesk: "影城4楼" },
     "寰映影城（中航城君尚购物中心店）": { subway: "1号线华强路站B出口", checkInDesk: "影城4楼" },
-    "万象影城（深圳湾万象城店）": { subway: "11/13号线后海站G出口", checkInDesk: "影城4楼" },
-    "万象影城（深圳万象城店）": { subway: "1/2/8号线大剧院站F出口", checkInDesk: "影城3楼" },
+    "万象影城（深圳湾万象城店）": { subway: "11/13号线后海站G出口", checkInDesk: "影城3楼" },
+    "万象影城（深圳万象城店）": { subway: "1/2/8号线大剧院站C出口", checkInDesk: "影城3楼" },
     "自定义": { subway: "", checkInDesk: "" }
 };
 
