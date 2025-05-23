@@ -13,7 +13,7 @@ const templates = {
             { label: "电影时长", id: "movieDuration", type: "text" },
             { label: "活动物料", id: "eventMaterials", type: "textarea" },
             { label: "抽奖物料", id: "LotteryMaterials", type: "textarea" },
-            { label: "地点", id: "location", type: "select", options: ["寰映影城（中洲湾C Future City店）", "金逸影城（宝安大仟里激光IMAX店）", "寰映影城（深圳湾睿印RAIL IN店）", "寰映影城（中航城君尚购物中心店）", "万象影城（深圳湾万象城店）", "万象影城（深圳万象城店）", "自定义"] },
+            { label: "地点", id: "location", type: "select", options: ["", "寰映影城（中洲湾C Future City店）", "金逸影城（宝安大仟里激光IMAX店）", "寰映影城（深圳湾睿印RAIL IN店）", "寰映影城（中航城君尚购物中心店）", "万象影城（深圳湾万象城店）", "万象影城（深圳万象城店）", "自定义"] },
             { label: "自定义地点", id: "customLocation", type: "text", conditional: { field: "location", value: "自定义" } },
             { label: "地铁信息", id: "subwayInfo", type: "text" },
             { label: "签到台位置", id: "checkInDesk", type: "text" }
@@ -57,7 +57,7 @@ const templates = {
             { label: "第二场电影时长", id: "secondMovieDuration", type: "text" },
             { label: "第二场活动物料", id: "secondEventMaterials", type: "textarea" },
             { label: "第二场抽奖物料", id: "secondLotteryMaterials", type: "textarea" },
-            { label: "地点", id: "location", type: "select", options: ["寰映影城（中洲湾C Future City店）", "金逸影城（宝安大仟里激光IMAX店）", "寰映影城（深圳湾睿印RAIL IN店）", "寰映影城（中航城君尚购物中心店）", "万象影城（深圳湾万象城店）", "万象影城（深圳万象城店）", "自定义"] },
+            { label: "地点", id: "location", type: "select", options: ["", "寰映影城（中洲湾C Future City店）", "金逸影城（宝安大仟里激光IMAX店）", "寰映影城（深圳湾睿印RAIL IN店）", "寰映影城（中航城君尚购物中心店）", "万象影城（深圳湾万象城店）", "万象影城（深圳万象城店）", "自定义"] },
             { label: "自定义地点", id: "customLocation", type: "text", conditional: { field: "location", value: "自定义" } },
             { label: "地铁信息", id: "subwayInfo", type: "text" },
             { label: "签到台位置", id: "checkInDesk", type: "text" }
@@ -120,7 +120,7 @@ const templates = {
             { label: "第三场电影时长", id: "thirdMovieDuration", type: "text" },
             { label: "第三场活动物料", id: "thirdEventMaterials", type: "textarea" },
             { label: "第三场抽奖物料", id: "thirdLotteryMaterials", type: "textarea" },
-            { label: "地点", id: "location", type: "select", options: ["寰映影城（中洲湾C Future City店）", "金逸影城（宝安大仟里激光IMAX店）", "寰映影城（深圳湾睿印RAIL IN店）", "寰映影城（中航城君尚购物中心店）", "万象影城（深圳湾万象城店）", "万象影城（深圳万象城店）", "自定义"] },
+            { label: "地点", id: "location", type: "select", options: ["", "寰映影城（中洲湾C Future City店）", "金逸影城（宝安大仟里激光IMAX店）", "寰映影城（深圳湾睿印RAIL IN店）", "寰映影城（中航城君尚购物中心店）", "万象影城（深圳湾万象城店）", "万象影城（深圳万象城店）", "自定义"] },
             { label: "自定义地点", id: "customLocation", type: "text", conditional: { field: "location", value: "自定义" } },
             { label: "地铁信息", id: "subwayInfo", type: "text" },
             { label: "签到台位置", id: "checkInDesk", type: "text" }
@@ -215,7 +215,11 @@ function generateTemplateFields(templateId) {
         } else if (field.type === 'select') {
             inputElement = `<select id="${field.id}" class="w-full p-2 border rounded">`;
             field.options.forEach(option => {
-                inputElement += `<option value="${option}">${option}</option>`;
+                if (option === "") {
+                    inputElement += `<option value="${option}" selected>${option || "请选择"}</option>`;
+                } else {
+                    inputElement += `<option value="${option}">${option}</option>`;
+                }
             });
             inputElement += `</select>`;
         } else if (field.type === 'date') {
