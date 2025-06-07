@@ -46,6 +46,7 @@ const templates = {
             { label: "是否支持连签", id: "allowContinuousSign", type: "select", options: ["是", "否"] },
             { label: "第一场签到时间（提前）", id: "firstCheckInTime", type: "select", options: ["30分钟", "1小时", "1.5小时"] },
             { label: "第一场电影放映时间", id: "firstMovieStartTime", type: "time" },
+            { label: "第一场电影时长", id: "firstMovieDuration", type: "text" },
             { label: "第一场活动物料", id: "firstEventMaterials", type: "textarea" },
             { label: "第一场抽奖物料", id: "firstLotteryMaterials", type: "textarea" },
             { label: "第二场电影名称", id: "secondMovieName", type: "text" },
@@ -53,7 +54,6 @@ const templates = {
             { label: "第二场自定义电影版本", id: "secondCustomMovieVersion", type: "text", conditional: { field: "secondMovieVersion", value: "自定义" } },
             { label: "第二场签到时间（提前）", id: "secondCheckInTime", type: "select", options: ["30分钟", "1小时", "1.5小时"] },
             { label: "第二场电影放映时间", id: "secondMovieStartTime", type: "time" },
-            { label: "第一场电影时长", id: "firstMovieDuration", type: "text" },
             { label: "第二场电影时长", id: "secondMovieDuration", type: "text" },
             { label: "第二场活动物料", id: "secondEventMaterials", type: "textarea" },
             { label: "第二场抽奖物料", id: "secondLotteryMaterials", type: "textarea" },
@@ -176,6 +176,9 @@ function subtractMinutes(time, minutes) {
             mins = 0;
             hours += 1;
         }
+    }
+    if (minutes !== 0 && mins === 0) {
+        hours -= 1;
     }
     if (hours < 0) hours += 24;
     return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
